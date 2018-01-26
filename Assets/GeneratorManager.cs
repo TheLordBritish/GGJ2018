@@ -1,40 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class GeneratorManager : MonoBehaviour {
+public class GeneratorManager : MonoBehaviour
+{
+    private List<GameObject> lights;
 
-    List<GameObject> lights;
+    [SerializeField]
+    private float chargeAmount;
 
-    private bool isCharged;
-    private float chargeLevel;
+    private float currentCharge;
 
 	// Use this for initialization
-	void Start () 
+	void Start() 
     {
-        lights = new List<GameObject>(GameObject.FindGameObjectsWithTag("light"));
-
-        isCharged = true;
-        chargeLevel = 10.0f;
+        lights = new List<GameObject>(GameObject.FindGameObjectsWithTag("Light"));
+        currentCharge = chargeAmount * 0.5f;
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void Update()
     {
-        chargeLevel -= Time.deltaTime;
+        currentCharge -= Time.deltaTime;
         TurnOffLights();
 	}
 
-    public void TurnOffLights()
+    private void TurnOffLights()
     {
-        if (chargeLevel <= 0.0f)
+        if (currentCharge <= 0.0f)
         {
-            isCharged = false;
-
-            foreach (GameObject l in lights)
-            {
-                // l.GetComponent(light code here);
-            }
+            lights.ForEach(go => go.SetActive(true));
         }
+    }
+
+    public void TurnOnLights()
+    {
+        currentCharge = chargeAmount;
+        lights.ForEach(go => go.SetActive(true));
     }
 }
