@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
-
+public class PlayerMovement : MonoBehaviour
+{
     public float speed; 
 
 	// Use this for initialization
@@ -35,25 +33,21 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.W))
         {
-            Debug.Log(("forward"));
             transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.forward, Time.deltaTime * speed);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            Debug.Log(("backwards"));
             transform.position = Vector3.MoveTowards(transform.position, transform.position + -Vector3.forward, Time.deltaTime * speed);
         }
 
         if (Input.GetKey((KeyCode.D)))
         {
-            Debug.Log(("forward"));
             transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.right, Time.deltaTime * speed);
         }
 
         if (Input.GetKey((KeyCode.A)))
         {
-            Debug.Log(("forward"));
             transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.left, Time.deltaTime * speed);
         }
     }

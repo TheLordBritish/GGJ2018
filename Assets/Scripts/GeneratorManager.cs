@@ -10,6 +10,11 @@ public class GeneratorManager : MonoBehaviour
 
     private float currentCharge;
 
+    public bool IsPoweredOn
+    {
+        get { return currentCharge >= 0.0f; }
+    }
+
 	// Use this for initialization
 	void Start() 
     {

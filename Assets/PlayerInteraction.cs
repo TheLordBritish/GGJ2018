@@ -1,18 +1,16 @@
 ﻿using UnityEngine;
 
-public class PlayerInteraction : MonoBehaviour {
-
+public class PlayerInteraction : MonoBehaviour
+{
     [SerializeField]
     private float distanceToActivate;
     private GameObject player;
 
-	// Use this for initialization
 	void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");	
 	}
 	
-	// Update is called once per frame
 	void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -26,6 +24,10 @@ public class PlayerInteraction : MonoBehaviour {
                 {
                     AttemptGenerateActivation(hit.collider.gameObject);
                 }
+                else if (hit.collider.CompareTag("TrapDoor"))
+                {
+                    AttemptExit(hit.collider.gameObject);
+                }
             }
         }
 	}
@@ -36,6 +38,22 @@ public class PlayerInteraction : MonoBehaviour {
         {
             Debug.Log("Activating generator.");
             generator.GetComponent<GeneratorManager>().TurnOnLights();
+        }
+    }
+
+    private void AttemptExit(GameObject exit)
+    {
+        if (Vector3.Distance(player.transform.position, exit.transform.position) <= distanceToActivate)
+        {
+            // Get the generator and check if it's currently powered on.
+            var generator = GameObject.FindGameObjectWithTag("Generator");
+            var gm = generator.GetComponent<GeneratorManager>();
+
+            if (gm.IsPoweredOn)
+            {
+                Debug.Log("Exiting level.");
+                // TODO: Change scene.
+            }
         }
     }
 }
