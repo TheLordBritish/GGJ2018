@@ -207,6 +207,16 @@ Prefab:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 65221837928926384, guid: 06d4dc3b14e374356b8793dab3bd6dc1,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.1087513
+      objectReference: {fileID: 0}
+    - target: {fileID: 65221837928926384, guid: 06d4dc3b14e374356b8793dab3bd6dc1,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 0.47302914
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06d4dc3b14e374356b8793dab3bd6dc1, type: 2}
   m_IsPrefabParent: 0
@@ -599,6 +609,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f48d159f1690884a8e7ace374456db0, type: 3}
+  m_IsPrefabParent: 0
+--- !u!1001 &525781399
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4061566705834450, guid: ee0a7d4221c93453580108e5c5d1ed02, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061566705834450, guid: ee0a7d4221c93453580108e5c5d1ed02, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061566705834450, guid: ee0a7d4221c93453580108e5c5d1ed02, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061566705834450, guid: ee0a7d4221c93453580108e5c5d1ed02, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061566705834450, guid: ee0a7d4221c93453580108e5c5d1ed02, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061566705834450, guid: ee0a7d4221c93453580108e5c5d1ed02, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061566705834450, guid: ee0a7d4221c93453580108e5c5d1ed02, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061566705834450, guid: ee0a7d4221c93453580108e5c5d1ed02, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ee0a7d4221c93453580108e5c5d1ed02, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &533505499
 Prefab:
@@ -1096,6 +1148,59 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.29999998, y: 0.03, z: 0.29999998}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1255296334 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1512300206181880, guid: ee0a7d4221c93453580108e5c5d1ed02,
+    type: 2}
+  m_PrefabInternal: {fileID: 525781399}
+--- !u!65 &1255296335
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1255296334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.027278, z: 1}
+  m_Center: {x: 0, y: 0.58276796, z: 0}
+--- !u!54 &1255296336
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1255296334}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!195 &1255296338
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1255296334}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &1321395174
 Prefab:
   m_ObjectHideFlags: 0
