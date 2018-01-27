@@ -2,7 +2,13 @@
 
 public class PlayerMovement : MonoBehaviour
 {
+    private Animator animator;
     public float speed; 
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
 	// Use this for initialization
 	void Start()
@@ -13,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update() 
     {
-        RotatePlayer();
+       //  RotatePlayer();
         MovePlayer();
 	}
 
@@ -31,24 +37,36 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+        bool isMoving = false;
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.forward, Time.deltaTime * speed);
+            isMoving = true;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward), Time.deltaTime * 15.0f);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + -Vector3.forward, Time.deltaTime * speed);
+            isMoving = true;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(-Vector3.forward), Time.deltaTime * 15.0f);
         }
 
         if (Input.GetKey((KeyCode.D)))
         {
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.right, Time.deltaTime * speed);
+            isMoving = true;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.right), Time.deltaTime * 15.0f);
         }
 
         if (Input.GetKey((KeyCode.A)))
         {
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.left, Time.deltaTime * speed);
+            isMoving = true;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.left), Time.deltaTime * 15.0f);
         }
+
+        if (isMoving)
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
+
+        animator.SetBool("isMoving", isMoving);
     }
 }
