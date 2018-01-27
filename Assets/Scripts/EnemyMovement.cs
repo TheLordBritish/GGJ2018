@@ -17,6 +17,8 @@ public class EnemyMovement : MonoBehaviour
     public GameObject particleSmall;
 
     private NavMeshAgent agent;
+    private HealthSystem system;
+
     private float attackTimer;
 
     public EnemyState CurrentState { get; set; }
@@ -26,6 +28,7 @@ public class EnemyMovement : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         generator = GameObject.FindGameObjectWithTag("Generator").GetComponent<GeneratorManager>();
+        system = GetComponent<HealthSystem>();
     }
 
     void Start()
@@ -51,7 +54,7 @@ public class EnemyMovement : MonoBehaviour
                 break;
         }
 
-        if (generator.IsPoweredOn)
+        if (generator.IsPoweredOn || system.IsDead())
         {
             Destroy(gameObject);
         }
