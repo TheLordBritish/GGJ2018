@@ -1,49 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemySpawnManager : MonoBehaviour {
-
+public class EnemySpawnManager : MonoBehaviour
+{
     static int enemyCount;
     public int maxEnemies;
     public GameObject enemy;
-    public GameObject target;
 
-    public float timer;
-    private bool hasSpawned;
-    private GameObject lighting;
+    private float timer;
+    private GeneratorManager generator;
 
 	// Use this for initialization
 	void Start () 
     {
         timer = 3.0f;
         enemyCount = 0;
-        hasSpawned = false;
 
-        lighting = GameObject.FindGameObjectWithTag("Light");
+        generator = GameObject.FindGameObjectWithTag("Generator").GetComponent<GeneratorManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
-        if (!lighting.activeSelf)
+        timer -= Time.deltaTime;
+
+        if (!generator.IsPoweredOn)
         {
-            if (timer >= 3.0f)
+            if (timer <= 0.0f)
             {
                 if (enemyCount < maxEnemies)
                 {
                     Instantiate(enemy, transform.position, Quaternion.identity);
                     enemyCount++;
-                    hasSpawned = true;
-                    timer = 0.0f;
+                    timer = 3.0f;
                 }
             }
-
-            if (hasSpawned)
-                timer += Time.deltaTime;
-
-            else
-                timer = 3.0f;
         }
 	}
 }

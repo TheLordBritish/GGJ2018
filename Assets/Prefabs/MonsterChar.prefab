@@ -270,8 +270,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c9dfc9dc4b4406d97cdfe5724e92bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 0}
-  lighting: {fileID: 0}
+  particleBig: {fileID: 1232765735290056, guid: 088009f4d094c4b3886c32c0b4a7cea8,
+    type: 2}
+  particleSmall: {fileID: 1233312147045942, guid: ac768af3b71b9441583297beee5ca56f,
+    type: 2}
+  distanceToAttack: 20
 --- !u!195 &195597339193388770
 NavMeshAgent:
   m_ObjectHideFlags: 1

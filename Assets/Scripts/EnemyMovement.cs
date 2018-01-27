@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.AI;
 
 public enum EnemyState
@@ -11,33 +10,33 @@ public enum EnemyState
 
 public class EnemyMovement : MonoBehaviour
 {
-    public GameObject goal;
-    public GameObject lighting;
+    private GameObject player;
+    private GeneratorManager generator;
+
     public GameObject particleBig;
     public GameObject particleSmall;
 
     private NavMeshAgent agent;
     private float attackTimer;
 
-    public EnemyState currentState;
+    public EnemyState CurrentState { get; set; }
+    public float distanceToAttack;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        generator = GameObject.FindGameObjectWithTag("Generator").GetComponent<GeneratorManager>();
     }
 
     void Start()
     {
-        //lighting = GameObject.FindGameObjectsWithTag("Light")[0];
-        currentState = EnemyState.Chase;
-        // agent = GetComponent<NavMeshAgent>();
-
+        player = GameObject.FindGameObjectWithTag("Player");
         attackTimer = 2.0f;
     }
 
     void Update()
     {
-        switch(currentState)
+        switch (CurrentState)
         {
             case EnemyState.Chase:
                 ChasePlayer();
@@ -50,54 +49,46 @@ public class EnemyMovement : MonoBehaviour
             case EnemyState.Flee:
                 RunAway();
                 break;
-
-            default:
-                ChasePlayer();
-                break;
         }
 
-        if (lighting.activeSelf)
-            Destroy(this.gameObject);
+        if (generator.IsPoweredOn)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void ChasePlayer()
     {
-        if (!lighting.activeSelf)
+        agent.isStopped = false;
+        agent.destination = player.transform.position;
+
+        if (Vector3.Distance(transform.position, player.transform.position) < distanceToAttack)
         {
-            agent.destination = goal.transform.position;
-
-            float distance = Vector3.Distance(transform.position, goal.transform.position);
-
-            if (distance < 1.0f)
-            {
-                currentState = EnemyState.Attack;
-            }
+            CurrentState = EnemyState.Attack;
         }
     }
 
     public void AttackPlayer()
     {
-        var playerHealth = goal.GetComponent<HealthSystem>();
-
         if (attackTimer <= 0.0f)
         {
+            var playerHealth = player.GetComponent<HealthSystem>();
+
             playerHealth.TakeDamage(1);
             attackTimer = 2.0f;
         }
 
         attackTimer -= Time.deltaTime;
-
-        float distance = Vector3.Distance(transform.position, goal.transform.position);
-
-        if (distance > 1.0f)
+        if (Vector3.Distance(transform.position, player.transform.position) > distanceToAttack)
         {
-            currentState = EnemyState.Chase;
+            CurrentState = EnemyState.Chase;
         }
     }
 
     public void RunAway()
     {
-        
+        agent.destination = transform.position;
+        agent.isStopped = true;
     }
 
     public void OnDestroy()
