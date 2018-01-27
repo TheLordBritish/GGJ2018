@@ -3,6 +3,8 @@
 public class PlayerMovement : MonoBehaviour
 {
     private Animator animator;
+
+    public GameObject spine;
     public float speed; 
 
     void Awake()
@@ -19,21 +21,8 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update() 
     {
-       //  RotatePlayer();
         MovePlayer();
 	}
-
-    private void RotatePlayer()
-    {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 playerPos = Camera.main.WorldToScreenPoint(transform.position);
-
-        Vector3 dir = mousePos - playerPos;
-
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.AngleAxis(-angle, Vector3.up);
-    }
 
     private void MovePlayer()
     {
