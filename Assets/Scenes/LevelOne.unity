@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074002, b: 0.3587271, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1628,6 +1628,10 @@ Prefab:
       propertyPath: m_Name
       value: Light (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1159953615312922, guid: a71af26b064140444a322a2a99479477, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a71af26b064140444a322a2a99479477, type: 2}
   m_IsPrefabParent: 0
@@ -2606,6 +2610,10 @@ Prefab:
     - target: {fileID: 1159953615312922, guid: a71af26b064140444a322a2a99479477, type: 2}
       propertyPath: m_Name
       value: Light (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159953615312922, guid: a71af26b064140444a322a2a99479477, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a71af26b064140444a322a2a99479477, type: 2}
@@ -3639,6 +3647,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1206353051478178, guid: 06d4dc3b14e374356b8793dab3bd6dc1,
     type: 2}
   m_PrefabInternal: {fileID: 768945883}
+--- !u!114 &1302156146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1302156141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3edfa8bf6228bcf4db69bb055aaab4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1001 &1320203799
 Prefab:
   m_ObjectHideFlags: 0
@@ -4349,6 +4369,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4876507243313720, guid: a71af26b064140444a322a2a99479477, type: 2}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159953615312922, guid: a71af26b064140444a322a2a99479477, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

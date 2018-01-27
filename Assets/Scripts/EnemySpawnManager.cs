@@ -11,6 +11,7 @@ public class EnemySpawnManager : MonoBehaviour {
 
     public float timer;
     private bool hasSpawned;
+    private GameObject lighting;
 
 	// Use this for initialization
 	void Start () 
@@ -18,26 +19,31 @@ public class EnemySpawnManager : MonoBehaviour {
         timer = 3.0f;
         enemyCount = 0;
         hasSpawned = false;
+
+        lighting = GameObject.FindGameObjectWithTag("Light");
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
-        if (timer >= 3.0f)
+        if (!lighting.activeSelf)
         {
-            if (enemyCount < maxEnemies)
+            if (timer >= 3.0f)
             {
-                Instantiate(enemy, transform.position, Quaternion.identity);
-                enemyCount++;
-                hasSpawned = true;
-                timer = 0.0f;
+                if (enemyCount < maxEnemies)
+                {
+                    Instantiate(enemy, transform.position, Quaternion.identity);
+                    enemyCount++;
+                    hasSpawned = true;
+                    timer = 0.0f;
+                }
             }
+
+            if (hasSpawned)
+                timer += Time.deltaTime;
+
+            else
+                timer = 3.0f;
         }
-
-        if (hasSpawned)
-            timer += Time.deltaTime;
-
-        else
-            timer = 3.0f;
 	}
 }
