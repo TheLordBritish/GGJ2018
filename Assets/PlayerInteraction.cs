@@ -5,10 +5,12 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField]
     private float distanceToActivate;
     private GameObject player;
+    private ScreenTransitionImageEffect transition;
 
 	void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");	
+        player = GameObject.FindGameObjectWithTag("Player");
+        transition = GetComponent<ScreenTransitionImageEffect>();
 	}
 	
 	void Update()
@@ -52,7 +54,7 @@ public class PlayerInteraction : MonoBehaviour
             if (gm.IsPoweredOn)
             {
                 Debug.Log("Exiting level.");
-                // TODO: Change scene.
+                transition.ChangeScene = true;
             }
         }
     }

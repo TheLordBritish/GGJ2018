@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScreenTransitionImageEffect : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class ScreenTransitionImageEffect : MonoBehaviour
     public Color colour = Color.black;
     public Texture2D mask;
     public bool maskInvert;
+    public string sceneName;
 
     private Material material;
+    public bool ChangeScene { get; set; }
 
     void Start()
     {
@@ -21,6 +24,18 @@ public class ScreenTransitionImageEffect : MonoBehaviour
         {
             hideFlags = HideFlags.HideAndDontSave
         };
+    }
+
+    void Update()
+    {
+        if (ChangeScene)
+        {
+            maskValue += Time.deltaTime;
+            if (maskValue > 0.0f)
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+        }
     }
 
     void OnDisable()
