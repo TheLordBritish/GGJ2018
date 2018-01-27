@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
 {
     public GameObject goal;
     public GameObject lighting;
+    public GameObject particleBig;
+    public GameObject particleSmall;
 
     private NavMeshAgent agent;
     private float attackTimer;
@@ -100,6 +102,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void OnDestroy()
     {
-        //spawn particles
+        Instantiate(particleBig, transform.position,Quaternion.identity);
+        Instantiate(particleSmall, transform.position, Quaternion.identity);
     }
 }

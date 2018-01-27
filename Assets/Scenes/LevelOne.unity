@@ -5297,6 +5297,18 @@ Prefab:
       propertyPath: lighting
       value: 
       objectReference: {fileID: 442466731}
+    - target: {fileID: 114938876389561226, guid: ee0a7d4221c93453580108e5c5d1ed02,
+        type: 2}
+      propertyPath: particleBig
+      value: 
+      objectReference: {fileID: 1233312147045942, guid: ac768af3b71b9441583297beee5ca56f,
+        type: 2}
+    - target: {fileID: 114938876389561226, guid: ee0a7d4221c93453580108e5c5d1ed02,
+        type: 2}
+      propertyPath: particleSmall
+      value: 
+      objectReference: {fileID: 1232765735290056, guid: 088009f4d094c4b3886c32c0b4a7cea8,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee0a7d4221c93453580108e5c5d1ed02, type: 2}
   m_IsPrefabParent: 0
