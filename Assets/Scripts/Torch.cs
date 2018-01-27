@@ -1,27 +1,25 @@
 ﻿using UnityEngine;
 
-public class Torch : MonoBehaviour {
-
-    [SerializeField]
-    private float torchRadius;
-
-	// Use this for initialization
-	void Start()
-    {
-	    	
-	}
-	
-	// Update is called once per frame
-	void Update()
-    {
-
-	}
-
+public class Torch : MonoBehaviour
+{
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Monster"))
         {
-            Debug.Log("Monster in torch-light.");
+            var behaviour = other.GetComponent<EnemyMovement>();
+            behaviour.CurrentState = EnemyState.Flee;
+
+            var health = other.GetComponent<HealthSystem>();
+            health.TakeDamage(1);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Monster"))
+        {
+            var behaviour = other.GetComponent<EnemyMovement>();
+            behaviour.CurrentState = EnemyState.Chase;
         }
     }
 }
