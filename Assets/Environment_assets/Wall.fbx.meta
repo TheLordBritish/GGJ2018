@@ -15,8 +15,11 @@ ModelImporter:
     400008: //RootNode
     2100000: lambert1
     2300000: polySurface2
+    2300002: //RootNode
     3300000: polySurface2
+    3300002: //RootNode
     4300000: polySurface2
+    4300002: pCube45
   externalObjects: {}
   materials:
     importMaterials: 1
