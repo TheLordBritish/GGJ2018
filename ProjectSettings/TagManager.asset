@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Light
   - Generator
+  - Monster
   layers:
   - Default
   - TransparentFX

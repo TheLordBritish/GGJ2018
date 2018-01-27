@@ -28,7 +28,7 @@ public class GeneratorManager : MonoBehaviour
     {
         if (currentCharge <= 0.0f)
         {
-            lights.ForEach(go => go.SetActive(true));
+            lights.ForEach(go => go.SetActive(false));
         }
     }
 
