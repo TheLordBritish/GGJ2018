@@ -207,6 +207,10 @@ Prefab:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1206353051478178, guid: 06d4dc3b14e374356b8793dab3bd6dc1, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06d4dc3b14e374356b8793dab3bd6dc1, type: 2}
   m_IsPrefabParent: 0
@@ -1124,35 +1128,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.29999998, y: 0.03, z: 0.29999998}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1331604157 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1347995245684334, guid: f2fd3ce2bdea727408baf04bb4ffcc54,
-    type: 2}
-  m_PrefabInternal: {fileID: 932614122}
---- !u!135 &1331604158
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1331604157}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1331604160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1331604157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83a58673a9c07fb41b1a604ec8e7b601, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  torchRadius: 0
 --- !u!1 &1333008276 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 9f48d159f1690884a8e7ace374456db0, type: 3}
@@ -1193,6 +1168,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.29999998, y: 0.03, z: 0.29999998}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &1373826675
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4567407383165000, guid: 946fdd08c0e391d4dae88abc7e702387, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -8.76909
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567407383165000, guid: 946fdd08c0e391d4dae88abc7e702387, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567407383165000, guid: 946fdd08c0e391d4dae88abc7e702387, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1.0727688
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567407383165000, guid: 946fdd08c0e391d4dae88abc7e702387, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567407383165000, guid: 946fdd08c0e391d4dae88abc7e702387, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567407383165000, guid: 946fdd08c0e391d4dae88abc7e702387, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567407383165000, guid: 946fdd08c0e391d4dae88abc7e702387, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567407383165000, guid: 946fdd08c0e391d4dae88abc7e702387, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 946fdd08c0e391d4dae88abc7e702387, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1380120416
 Prefab:
   m_ObjectHideFlags: 0
@@ -1705,6 +1722,7 @@ GameObject:
   - component: {fileID: 1854458302}
   - component: {fileID: 1854458301}
   - component: {fileID: 1854458305}
+  - component: {fileID: 1854458306}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1787,6 +1805,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToActivate: 5
+--- !u!114 &1854458306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1854458300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6482ad575a0ef0a4e9c3f28e5df005d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: f5fd67cb889aa3d4ea2fdf95ac26db03, type: 3}
+  maskValue: 0
+  colour: {r: 0, g: 0, b: 0, a: 1}
+  mask: {fileID: 2800000, guid: 7a4d0459743d39540b843efbdea6f0f4, type: 3}
+  maskInvert: 0
 --- !u!1 &1873506757 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 9f48d159f1690884a8e7ace374456db0, type: 3}
