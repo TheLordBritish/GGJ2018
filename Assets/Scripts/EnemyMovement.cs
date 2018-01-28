@@ -45,7 +45,6 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!damageSystem.isPlaying)
         {
-            Debug.Log("Playing.");
             damageSystem.Play();
         }
 

@@ -4,7 +4,6 @@ public class PlayerMovement : MonoBehaviour
 {
     private Animator animator;
 
-    public GameObject spine;
     public float speed; 
 
     void Awake()
@@ -12,50 +11,44 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-	// Use this for initialization
-	void Start()
-    {
-		
-	}
-	
 	// Update is called once per frame
 	void Update() 
     {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+        }
+
         MovePlayer();
 	}
 
     private void MovePlayer()
     {
-        bool isMoving = false;
+        Vector3 movement = Vector3.zero;
+
         if (Input.GetKey(KeyCode.W))
         {
-            isMoving = true;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward), Time.deltaTime * 15.0f);
+            movement += Vector3.forward;
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            isMoving = true;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(-Vector3.forward), Time.deltaTime * 15.0f);
+            movement += Vector3.back;
         }
 
         if (Input.GetKey((KeyCode.D)))
         {
-            isMoving = true;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.right), Time.deltaTime * 15.0f);
+            movement += Vector3.right;
         }
 
         if (Input.GetKey((KeyCode.A)))
         {
-            isMoving = true;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.left), Time.deltaTime * 15.0f);
+            movement += Vector3.left;
         }
 
-        if (isMoving)
-        {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        }
-
-        animator.SetBool("isMoving", isMoving);
+        transform.Translate(movement * speed * Time.deltaTime);
+        animator.SetBool("isMoving", movement != Vector3.zero);
     }
 }

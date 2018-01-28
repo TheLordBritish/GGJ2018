@@ -40,6 +40,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             Debug.Log("Activating generator.");
             generator.GetComponent<GeneratorManager>().TurnOnLights();
+            generator.GetComponent<AudioSource>().Play();
         }
     }
 
@@ -55,6 +56,8 @@ public class PlayerInteraction : MonoBehaviour
             {
                 Debug.Log("Exiting level.");
                 transition.ChangeScene = true;
+
+                exit.GetComponent<AudioSource>().Play();
             }
         }
     }
