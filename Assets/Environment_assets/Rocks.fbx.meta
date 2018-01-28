@@ -1,24 +1,14 @@
 fileFormatVersion: 2
-guid: e7d03578a68a5ba419444199884a97da
+guid: 0720782c8d7b58b4cae361600d450ac3
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: polySurface1
-    100002: polySurface3
-    100004: transform3
-    100006: transform4
-    100008: //RootNode
-    400000: polySurface1
-    400002: polySurface3
-    400004: transform3
-    400006: transform4
-    400008: //RootNode
+    100000: //RootNode
+    400000: //RootNode
     2100000: lambert1
-    2300000: polySurface3
-    2300002: //RootNode
-    3300000: polySurface3
-    3300002: //RootNode
-    4300000: polySurface3
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pCylinder10
   externalObjects: {}
   materials:
     importMaterials: 1
