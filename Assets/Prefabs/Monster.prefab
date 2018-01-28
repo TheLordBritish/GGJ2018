@@ -1008,6 +1008,8 @@ MonoBehaviour:
     type: 2}
   particleSmall: {fileID: 1233312147045942, guid: ac768af3b71b9441583297beee5ca56f,
     type: 2}
+  damageSystem: {fileID: 198578996239182502, guid: 237eb3bc84f559942977b9ab2f40d27d,
+    type: 2}
   distanceToAttack: 3
 --- !u!114 &114865857144422878
 MonoBehaviour:

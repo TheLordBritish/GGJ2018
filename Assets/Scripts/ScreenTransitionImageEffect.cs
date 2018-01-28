@@ -24,6 +24,8 @@ public class ScreenTransitionImageEffect : MonoBehaviour
         {
             hideFlags = HideFlags.HideAndDontSave
         };
+
+        maskValue = 1.0f;
     }
 
     void Update()
@@ -31,9 +33,17 @@ public class ScreenTransitionImageEffect : MonoBehaviour
         if (ChangeScene)
         {
             maskValue += Time.deltaTime;
-            if (maskValue > 0.0f)
+            if (maskValue >= 1.0f)
             {
                 SceneManager.LoadScene(sceneName);
+            }
+        }
+        else
+        {
+            maskValue -= Time.deltaTime;
+            if (maskValue <= 0.0f)
+            {
+                maskValue = 0.0f;
             }
         }
     }

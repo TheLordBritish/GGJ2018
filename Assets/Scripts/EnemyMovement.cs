@@ -20,6 +20,8 @@ public class EnemyMovement : MonoBehaviour
     private NavMeshAgent agent;
     private HealthSystem system;
 
+    public ParticleSystem damageSystem;
+
     private float attackTimer;
 
     public EnemyState CurrentState { get; set; }
@@ -41,6 +43,12 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        if (!damageSystem.isPlaying)
+        {
+            Debug.Log("Playing.");
+            damageSystem.Play();
+        }
+
         switch (CurrentState)
         {
             case EnemyState.Chase:
@@ -64,6 +72,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void ChasePlayer()
     {
+        // damageSystem.Stop();
         animator.SetBool("isMoving", true);
         agent.isStopped = false;
         agent.destination = player.transform.position;
@@ -76,6 +85,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void AttackPlayer()
     {
+        // damageSystem.Stop();
         animator.SetBool("isMoving", false);
         if (attackTimer <= 0.0f)
         {
