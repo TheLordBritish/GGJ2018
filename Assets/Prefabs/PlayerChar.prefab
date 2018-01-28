@@ -1286,7 +1286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f4653e8ffab4df084c55f67c4c9358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spine: {fileID: 0}
+  deathParticles:
+  - {fileID: 1755278288522618, guid: 6ab2e50f9b094494281face380f7ff5b, type: 2}
+  - {fileID: 1019972872514586, guid: b8e970c166c694d9db423f6676447cc8, type: 2}
   speed: 4
 --- !u!114 &114526976912162904
 MonoBehaviour:

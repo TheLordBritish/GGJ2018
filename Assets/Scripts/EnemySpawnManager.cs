@@ -7,6 +7,9 @@ public class EnemySpawnManager : MonoBehaviour
     private float timer;
     private GeneratorManager generator;
 
+    public int maxEnemies;
+    public int EnemyCount{ get; set; }
+
 	void Start () 
     {
         timer = 3.0f;
@@ -16,10 +19,19 @@ public class EnemySpawnManager : MonoBehaviour
 	void Update () 
     {
         timer -= Time.deltaTime;
-        if (!generator.IsPoweredOn && timer <= 0.0f)
+        if (EnemyCount <= maxEnemies && !generator.IsPoweredOn && timer <= 0.0f)
         {
-            Instantiate(enemy, transform.position, Quaternion.identity);
+            GameObject go = Instantiate(enemy, transform.position, Quaternion.identity) as GameObject;
+            go.GetComponent<EnemyMovement>().Spawner = this;
+
+            EnemyCount++;
             timer = 3.0f;
         }
 	}
+
+    public void ResetEnemy()
+    {
+        timer = 3.0f;
+        EnemyCount--;
+    }
 }

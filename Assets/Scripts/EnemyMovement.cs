@@ -25,6 +25,8 @@ public class EnemyMovement : MonoBehaviour
     private float attackTimer;
 
     public EnemyState CurrentState { get; set; }
+    public EnemySpawnManager Spawner { get; set; }
+
     public float distanceToAttack;
 
     private void Awake()
@@ -112,5 +114,7 @@ public class EnemyMovement : MonoBehaviour
     {
         Instantiate(particleBig, transform.position,Quaternion.identity);
         Instantiate(particleSmall, transform.position, Quaternion.identity);
+
+        Spawner.ResetEnemy();
     }
 }

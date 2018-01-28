@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -51,7 +51,7 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_TemporalCoherenceThreshold: 1
-    m_EnvironmentLightingMode: 0
+    m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
@@ -1001,6 +1001,11 @@ Prefab:
       propertyPath: m_Name
       value: SpawnPoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114730899385195502, guid: 36ea132de03dc4304a8b5dc00aaa494c,
+        type: 2}
+      propertyPath: maxEnemies
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36ea132de03dc4304a8b5dc00aaa494c, type: 2}
   m_IsPrefabParent: 0
@@ -1634,6 +1639,11 @@ Prefab:
     - target: {fileID: 4847745575564792, guid: 36ea132de03dc4304a8b5dc00aaa494c, type: 2}
       propertyPath: m_RootOrder
       value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 114730899385195502, guid: 36ea132de03dc4304a8b5dc00aaa494c,
+        type: 2}
+      propertyPath: maxEnemies
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36ea132de03dc4304a8b5dc00aaa494c, type: 2}
@@ -6764,7 +6774,27 @@ Prefab:
     - target: {fileID: 114231442000767082, guid: 9a2959bbc0e7d6a448bfe4a569fb448d,
         type: 2}
       propertyPath: sceneName
-      value: LevelTwo
+      value: WinScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 114441127363052114, guid: 9a2959bbc0e7d6a448bfe4a569fb448d,
+        type: 2}
+      propertyPath: distanceToActivate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 20822956086442510, guid: 9a2959bbc0e7d6a448bfe4a569fb448d,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0.015686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 20822956086442510, guid: 9a2959bbc0e7d6a448bfe4a569fb448d,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0.078431375
+      objectReference: {fileID: 0}
+    - target: {fileID: 20822956086442510, guid: 9a2959bbc0e7d6a448bfe4a569fb448d,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0.21568628
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a2959bbc0e7d6a448bfe4a569fb448d, type: 2}
@@ -9047,6 +9077,11 @@ Prefab:
       propertyPath: m_Name
       value: SpawnPoint (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114730899385195502, guid: 36ea132de03dc4304a8b5dc00aaa494c,
+        type: 2}
+      propertyPath: maxEnemies
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36ea132de03dc4304a8b5dc00aaa494c, type: 2}
   m_IsPrefabParent: 0
@@ -9750,6 +9785,11 @@ Prefab:
       propertyPath: m_Name
       value: SpawnPoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114730899385195502, guid: 36ea132de03dc4304a8b5dc00aaa494c,
+        type: 2}
+      propertyPath: maxEnemies
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36ea132de03dc4304a8b5dc00aaa494c, type: 2}
   m_IsPrefabParent: 0
@@ -10375,6 +10415,14 @@ Prefab:
     - target: {fileID: 4314027699470174, guid: 3b223ecbf5897aa44af10ba22732438c, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -121.73501
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986902937023758, guid: 3b223ecbf5897aa44af10ba22732438c, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986902937023758, guid: 3b223ecbf5897aa44af10ba22732438c, type: 2}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b223ecbf5897aa44af10ba22732438c, type: 2}
@@ -11805,6 +11853,11 @@ Prefab:
       propertyPath: m_Name
       value: SpawnPoint (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 114730899385195502, guid: 36ea132de03dc4304a8b5dc00aaa494c,
+        type: 2}
+      propertyPath: maxEnemies
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36ea132de03dc4304a8b5dc00aaa494c, type: 2}
   m_IsPrefabParent: 0
@@ -11859,6 +11912,14 @@ Prefab:
     - target: {fileID: 4314027699470174, guid: 3b223ecbf5897aa44af10ba22732438c, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 72.999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986902937023758, guid: 3b223ecbf5897aa44af10ba22732438c, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986902937023758, guid: 3b223ecbf5897aa44af10ba22732438c, type: 2}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b223ecbf5897aa44af10ba22732438c, type: 2}
@@ -12609,6 +12670,14 @@ Prefab:
     - target: {fileID: 4314027699470174, guid: 3b223ecbf5897aa44af10ba22732438c, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -222.163
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986902937023758, guid: 3b223ecbf5897aa44af10ba22732438c, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986902937023758, guid: 3b223ecbf5897aa44af10ba22732438c, type: 2}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b223ecbf5897aa44af10ba22732438c, type: 2}

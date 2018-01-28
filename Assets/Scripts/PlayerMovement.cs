@@ -1,27 +1,54 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
     private Animator animator;
+    private HealthSystem health;
+
+    public List<GameObject> deathParticles;
 
     public float speed; 
 
     void Awake()
     {
         animator = GetComponent<Animator>();
+        health = GetComponent<HealthSystem>();
     }
 
 	// Update is called once per frame
 	void Update() 
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (!health.IsDead())
         {
-            transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
-        }
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+            }
 
-        MovePlayer();
+            MovePlayer();
+        }
+        else
+        {
+            foreach (GameObject go in deathParticles)
+            {
+                Instantiate(go, transform.position, transform.rotation);
+            }
+
+            ScreenTransitionImageEffect transition = Camera.main.GetComponent<ScreenTransitionImageEffect>();
+            transition.ChangeScene = true;
+            transition.sceneName = "DeathScene";
+
+            GameObject[] objects = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject go in objects)
+            {
+                go.SetActive(false);
+            }
+
+            gameObject.SetActive(false);
+        }
 	}
 
     private void MovePlayer()
