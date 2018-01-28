@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
 {
     private GameObject player;
     private GeneratorManager generator;
+    private Animator animator;
 
     public GameObject particleBig;
     public GameObject particleSmall;
@@ -29,6 +30,7 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         generator = GameObject.FindGameObjectWithTag("Generator").GetComponent<GeneratorManager>();
         system = GetComponent<HealthSystem>();
+        animator = GetComponent<Animator>();
     }
 
     void Start()
@@ -62,6 +64,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void ChasePlayer()
     {
+        animator.SetBool("isMoving", true);
         agent.isStopped = false;
         agent.destination = player.transform.position;
 
@@ -73,6 +76,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void AttackPlayer()
     {
+        animator.SetBool("isMoving", false);
         if (attackTimer <= 0.0f)
         {
             var playerHealth = player.GetComponent<HealthSystem>();
@@ -90,6 +94,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void RunAway()
     {
+        animator.SetBool("isMoving", false);
         agent.destination = transform.position;
         agent.isStopped = true;
     }
